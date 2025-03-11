@@ -98,6 +98,8 @@ GEM
       tzinfo
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -321,6 +323,7 @@ DEPENDENCIES
   brakeman
   debug
   faker
+  fast_jsonapi
   kamal
   puma (>= 5.0)
   rails (~> 8.0.1)

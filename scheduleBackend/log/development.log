@@ -27,3 +27,250 @@ Migrating to CreateTasks (20250310011814)
   [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250310011814') RETURNING "version" /*application='SchedulerBackend'*/[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to CreateTasks (20250310011814)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250310011814' /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to CreateUsers (20250310005826)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "users" /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250310005826' /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to CreateUsers (20250310005826)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250310005826') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+Migrating to CreateTasks (20250310011814)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250310011814') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'cleveland@predovic.test' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Ray Daugherty', 'cleveland@predovic.test', '$2a$12$MaGgboAiYjr4Ny.xb4vWSOpDxouxlFua2YfiuxbXpH5GxtZZ48Ywy', '2025-03-10 22:44:06.864696', '2025-03-10 22:44:06.864696') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Possimus molestiae est.', '2025-03-09', '2025-03-31', '2025-03-24 01:59:59', 2, 1, '2025-03-10 22:44:06.919092', '2025-03-10 22:44:06.919092') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (2.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Blanditiis ex quod.', '2025-02-10', '2025-03-21', '2025-03-21 01:24:15', 4, 1, '2025-03-10 22:44:06.937721', '2025-03-10 22:44:06.937721') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (1.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Officia dicta voluptas.', '2025-02-13', '2025-03-20', '2025-04-03 23:51:21', 3, 1, '2025-03-10 22:44:06.949105', '2025-03-10 22:44:06.949105') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (4.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Repellat iure tenetur.', '2025-02-11', '2025-03-17', '2025-03-25 00:08:49', 2, 1, '2025-03-10 22:44:06.958704', '2025-03-10 22:44:06.958704') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Beatae laboriosam aspernatur.', '2025-02-14', '2025-03-20', '2025-04-02 23:07:42', 2, 1, '2025-03-10 22:44:06.968034', '2025-03-10 22:44:06.968034') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'fawn@kemmer.test' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Ginny Koch', 'fawn@kemmer.test', '$2a$12$Eubo68APtejnAlqw0LxDweuXmKq3ce97FQ4yrppOLGr./ixlrChuK', '2025-03-10 22:44:07.134276', '2025-03-10 22:44:07.134276') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Eligendi eveniet et.', '2025-02-14', '2025-03-16', '2025-03-21 00:00:59', 1, 2, '2025-03-10 22:44:07.140513', '2025-03-10 22:44:07.140513') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (2.0ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Nulla sed dignissimos.', '2025-03-06', '2025-03-22', '2025-04-09 21:37:34', 5, 2, '2025-03-10 22:44:07.143962', '2025-03-10 22:44:07.143962') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Eum et rerum.', '2025-02-22', '2025-04-01', '2025-04-07 22:22:53', 3, 2, '2025-03-10 22:44:07.150626', '2025-03-10 22:44:07.150626') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Ipsum sit sapiente.', '2025-02-17', '2025-03-11', '2025-03-17 22:43:54', 5, 2, '2025-03-10 22:44:07.153605', '2025-03-10 22:44:07.153605') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Quos sequi pariatur.', '2025-02-15', '2025-04-03', '2025-03-21 21:02:48', 3, 2, '2025-03-10 22:44:07.158312', '2025-03-10 22:44:07.158312') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'franklin@schmeler-rohan.example' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Lynsey Pagac', 'franklin@schmeler-rohan.example', '$2a$12$4qEvz0QJs05QTffpxlnuQe2SLbeWve/33xb0bnN4tzsISzbNJNMCO', '2025-03-10 22:44:07.320358', '2025-03-10 22:44:07.320358') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Culpa earum molestiae.', '2025-02-11', '2025-03-18', '2025-03-23 22:48:08', 5, 3, '2025-03-10 22:44:07.324085', '2025-03-10 22:44:07.324085') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Maiores nobis optio.', '2025-03-07', '2025-03-26', '2025-04-06 21:44:24', 1, 3, '2025-03-10 22:44:07.327477', '2025-03-10 22:44:07.327477') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Doloremque labore voluptate.', '2025-02-13', '2025-03-30', '2025-03-16 00:34:03', 5, 3, '2025-03-10 22:44:07.331464', '2025-03-10 22:44:07.331464') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Necessitatibus et incidunt.', '2025-03-01', '2025-04-07', '2025-03-21 21:34:47', 4, 3, '2025-03-10 22:44:07.334656', '2025-03-10 22:44:07.334656') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Cupiditate quae praesentium.', '2025-02-17', '2025-03-17', '2025-03-27 00:25:41', 5, 3, '2025-03-10 22:44:07.342451', '2025-03-10 22:44:07.342451') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'un@dach.test' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Winnie Lind', 'un@dach.test', '$2a$12$BqpdvKhwIhShl74heZqbvOjqx00lNTbXrRNinlvdqS//zuxGUZAiG', '2025-03-10 22:44:07.506332', '2025-03-10 22:44:07.506332') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Et tenetur blanditiis.', '2025-03-06', '2025-04-08', '2025-04-03 01:16:17', 1, 4, '2025-03-10 22:44:07.509008', '2025-03-10 22:44:07.509008') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Nam quod reiciendis.', '2025-02-28', '2025-04-08', '2025-03-14 23:23:31', 4, 4, '2025-03-10 22:44:07.511141', '2025-03-10 22:44:07.511141') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Qui aut ut.', '2025-02-20', '2025-03-13', '2025-03-12 21:22:35', 2, 4, '2025-03-10 22:44:07.513550', '2025-03-10 22:44:07.513550') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Molestiae cumque incidunt.', '2025-02-12', '2025-03-19', '2025-03-12 00:55:40', 5, 4, '2025-03-10 22:44:07.515658', '2025-03-10 22:44:07.515658') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Quam quis dolor.', '2025-03-08', '2025-03-16', '2025-03-27 22:18:24', 3, 4, '2025-03-10 22:44:07.517893', '2025-03-10 22:44:07.517893') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'hyacinth_pacocha@collier.example' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Sharen Haag', 'hyacinth_pacocha@collier.example', '$2a$12$uDtwdj/h8W.uX9gEDTErz.hl5s8lXBov5OFPFz5Ap0L0uvzBRjn1m', '2025-03-10 22:44:07.678860', '2025-03-10 22:44:07.678860') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Aut assumenda a.', '2025-02-26', '2025-04-09', '2025-04-01 21:01:13', 1, 5, '2025-03-10 22:44:07.681190', '2025-03-10 22:44:07.681190') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Earum a eligendi.', '2025-02-26', '2025-03-28', '2025-04-06 22:58:34', 4, 5, '2025-03-10 22:44:07.683245', '2025-03-10 22:44:07.683245') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Ullam eius eum.', '2025-03-06', '2025-04-03', '2025-03-28 22:30:12', 4, 5, '2025-03-10 22:44:07.686676', '2025-03-10 22:44:07.686676') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Inventore ipsam ducimus.', '2025-03-01', '2025-04-03', '2025-03-23 01:17:58', 2, 5, '2025-03-10 22:44:07.689046', '2025-03-10 22:44:07.689046') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (2.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Est laudantium nam.', '2025-02-19', '2025-03-17', '2025-04-02 00:00:18', 1, 5, '2025-03-10 22:44:07.698271', '2025-03-10 22:44:07.698271') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'markus@marvin.test' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Rep. Javier Towne', 'markus@marvin.test', '$2a$12$iW9MJWMfICcMZc61sYDc/OaOUXF3mtP/VZZdGCSb9jWM69dPpkDkm', '2025-03-10 22:44:07.865018', '2025-03-10 22:44:07.865018') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Consequatur iste voluptatem.', '2025-02-23', '2025-03-27', '2025-04-10 00:08:40', 3, 6, '2025-03-10 22:44:07.868204', '2025-03-10 22:44:07.868204') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Commodi dolorem provident.', '2025-02-21', '2025-03-29', '2025-04-04 23:05:37', 4, 6, '2025-03-10 22:44:07.870334', '2025-03-10 22:44:07.870334') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Omnis qui adipisci.', '2025-02-26', '2025-03-13', '2025-03-25 21:02:48', 5, 6, '2025-03-10 22:44:07.872859', '2025-03-10 22:44:07.872859') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Ut voluptatem beatae.', '2025-02-09', '2025-04-07', '2025-03-20 23:13:53', 1, 6, '2025-03-10 22:44:07.874942', '2025-03-10 22:44:07.874942') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Aspernatur dignissimos vitae.', '2025-02-28', '2025-04-07', '2025-03-23 21:44:30', 5, 6, '2025-03-10 22:44:07.885311', '2025-03-10 22:44:07.885311') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'loni@hane.test' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Karly Ernser Ret.', 'loni@hane.test', '$2a$12$7OwYf24E0h/hEYL2e5jkju6hk.yPPS5.dOvJWEhZsv.r3FtHZfmbS', '2025-03-10 22:44:08.045423', '2025-03-10 22:44:08.045423') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Quia velit illo.', '2025-02-15', '2025-03-30', '2025-04-02 01:35:20', 4, 7, '2025-03-10 22:44:08.050381', '2025-03-10 22:44:08.050381') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Excepturi sapiente illum.', '2025-02-20', '2025-03-23', '2025-03-19 23:43:11', 1, 7, '2025-03-10 22:44:08.052693', '2025-03-10 22:44:08.052693') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Laboriosam possimus excepturi.', '2025-03-09', '2025-03-21', '2025-03-15 21:58:26', 2, 7, '2025-03-10 22:44:08.054608', '2025-03-10 22:44:08.054608') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Doloribus quam ut.', '2025-02-19', '2025-04-01', '2025-04-07 22:52:51', 3, 7, '2025-03-10 22:44:08.056521', '2025-03-10 22:44:08.056521') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Eius autem et.', '2025-02-17', '2025-03-11', '2025-03-11 21:07:20', 5, 7, '2025-03-10 22:44:08.058438', '2025-03-10 22:44:08.058438') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kymberly.kunde@ziemann.example' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Ms. Alena Davis', 'kymberly.kunde@ziemann.example', '$2a$12$URn08XePMMMpl3qbm8TrpOfKLWXmqJSMH9CZhqu9YMBgHNikznJfa', '2025-03-10 22:44:08.218200', '2025-03-10 22:44:08.218200') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Rerum est voluptatem.', '2025-02-20', '2025-04-09', '2025-03-31 01:35:03', 1, 8, '2025-03-10 22:44:08.219798', '2025-03-10 22:44:08.219798') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Voluptas reprehenderit dolorem.', '2025-02-11', '2025-04-03', '2025-04-03 23:00:06', 1, 8, '2025-03-10 22:44:08.221968', '2025-03-10 22:44:08.221968') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Enim qui et.', '2025-02-25', '2025-04-07', '2025-03-17 00:50:53', 3, 8, '2025-03-10 22:44:08.223897', '2025-03-10 22:44:08.223897') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Fugit magnam quis.', '2025-02-08', '2025-03-18', '2025-03-19 00:04:24', 3, 8, '2025-03-10 22:44:08.225826', '2025-03-10 22:44:08.225826') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Aut vero unde.', '2025-02-25', '2025-03-16', '2025-04-02 22:41:00', 3, 8, '2025-03-10 22:44:08.227985', '2025-03-10 22:44:08.227985') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'morton.blick@fisher.test' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Amb. Tanner Graham', 'morton.blick@fisher.test', '$2a$12$mLP5vvQC3LEOBu5eur3CQ./MJTiVGSVlpZRErIURdo2EdoxT1lndO', '2025-03-10 22:44:08.387319', '2025-03-10 22:44:08.387319') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Officiis quasi quia.', '2025-02-20', '2025-03-13', '2025-03-25 21:14:49', 2, 9, '2025-03-10 22:44:08.388958', '2025-03-10 22:44:08.388958') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Laboriosam qui sit.', '2025-02-11', '2025-03-31', '2025-04-01 00:17:07', 2, 9, '2025-03-10 22:44:08.391155', '2025-03-10 22:44:08.391155') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Odit repellendus rerum.', '2025-02-08', '2025-03-21', '2025-03-20 21:35:24', 4, 9, '2025-03-10 22:44:08.393107', '2025-03-10 22:44:08.393107') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Architecto quod magnam.', '2025-02-13', '2025-03-13', '2025-03-24 23:09:10', 4, 9, '2025-03-10 22:44:08.395042', '2025-03-10 22:44:08.395042') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Repellendus eligendi enim.', '2025-02-25', '2025-03-13', '2025-03-31 00:29:31', 1, 9, '2025-03-10 22:44:08.396979', '2025-03-10 22:44:08.396979') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'josue_leannon@trantow-kihn.test' LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('Lianne Kuhn', 'josue_leannon@trantow-kihn.test', '$2a$12$NmCDX/VqP6YKoO8boRmwM.XomV76Y3M130RdYvaaexTEPFl/8TOUC', '2025-03-10 22:44:08.557969', '2025-03-10 22:44:08.557969') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Ea dignissimos ut.', '2025-02-12', '2025-03-20', '2025-03-18 21:47:36', 4, 10, '2025-03-10 22:44:08.559737', '2025-03-10 22:44:08.559737') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Est et mollitia.', '2025-02-21', '2025-03-27', '2025-03-27 23:44:12', 3, 10, '2025-03-10 22:44:08.561685', '2025-03-10 22:44:08.561685') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Totam accusamus ratione.', '2025-03-02', '2025-03-15', '2025-03-28 01:05:15', 4, 10, '2025-03-10 22:44:08.563936', '2025-03-10 22:44:08.563936') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Iure nisi animi.', '2025-02-14', '2025-03-11', '2025-03-22 23:22:33', 1, 10, '2025-03-10 22:44:08.565861', '2025-03-10 22:44:08.565861') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "created_at", "updated_at") VALUES ('Quaerat quae omnis.', '2025-03-05', '2025-04-07', '2025-03-12 22:05:33', 5, 10, '2025-03-10 22:44:08.567793', '2025-03-10 22:44:08.567793') RETURNING "id" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Load (2.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 1 /* loading for pp */ LIMIT 11 /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 1 /*application='SchedulerBackend'*/[0m

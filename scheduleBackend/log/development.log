@@ -274,3 +274,235 @@ FOREIGN KEY ("user_id")
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*application='SchedulerBackend'*/[0m
   [1m[36mTask Load (2.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 1 /* loading for pp */ LIMIT 11 /*application='SchedulerBackend'*/[0m
   [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to CreateTaskDates (20250326022335)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to CreateTaskDates (20250326022335)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "end_time" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "end_time" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "end_time" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" varchar, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tasks" ADD "days_of_week" text DEFAULT '' /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tasks" ADD "am_start" boolean DEFAULT 1 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tasks" ADD "am_end" boolean DEFAULT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250326022335') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-03-25 22:54:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 268ms (Views: 6.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 39.6ms)
+
+
+Started GET "/icon.png" for 127.0.0.1 at 2025-03-25 22:54:49 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started GET "/" for 127.0.0.1 at 2025-03-26 11:39:41 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.8ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 20.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-03-26 11:40:26 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2025-03-26 11:41:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user" => {"name" => "daniellujo", "password" => "[FILTERED]", "email" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#create'
+  [1m[36mUser Exists? (11.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daniellujo@gmail.com' LIMIT 1 /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('daniellujo', 'daniellujo@gmail.com', '$2a$12$j0f.lWCHkEMCTdncnNHRruPyFlMZzn17.3tBC4EHUreO2yWYJijri', '2025-03-26 15:41:03.482553', '2025-03-26 15:41:03.482553') RETURNING "id" /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#create'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:4:in 'UsersController#create'
+Completed 201 Created in 311ms (Views: 0.5ms | ActiveRecord: 34.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/tasks" for ::1 at 2025-03-26 11:42:04 -0400
+Processing by TasksController#create as HTML
+  Parameters: {"tasks" => [{"title" => "happa", "start_time" => "7", "end_time" => "8", "am_start" => true, "am_end" => true, "days_of_week" => ["M", "T"]}, {"title" => "wat", "start_time" => "9", "end_time" => "9", "am_start" => false, "am_end" => false, "days_of_week" => ["TH"]}], "task" => {}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+  [1m[36mTask Create (5.1ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('happa', NULL, NULL, NULL, NULL, NULL, '7', '8', 'M,T', 1, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 7.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: tasks.user_id)
+Caused by: SQLite3::ConstraintException (NOT NULL constraint failed: tasks.user_id)
+
+Information for: ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: tasks.user_id):
+  
+
+Information for cause: SQLite3::ConstraintException (NOT NULL constraint failed: tasks.user_id):
+  
+app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+app/controllers/tasks_controller.rb:11:in 'Array#each'
+app/controllers/tasks_controller.rb:11:in 'TasksController#create'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to ChangeUserIdToBeNullableInTasks (20250326155314)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" varchar, "days_of_week" text DEFAULT '', "am_start" boolean DEFAULT 1, "am_end" boolean DEFAULT 1) /*application='SchedulerBackend'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer, "start_time" varchar, "end_time" varchar, "days_of_week" text DEFAULT '', "am_start" boolean DEFAULT 1, "am_end" boolean DEFAULT 1, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250326155314') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-03-26 11:54:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 275ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 41.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-03-26 11:54:49 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "daniellujo", "password" => "[FILTERED]", "user" => {"name" => "daniellujo"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'daniellujo' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:14:in 'UsersController#login'
+Completed 200 OK in 222ms (Views: 0.3ms | ActiveRecord: 32.5ms (1 query, 0 cached) | GC: 28.6ms)
+
+
+Started POST "/tasks" for ::1 at 2025-03-26 11:56:44 -0400
+Processing by TasksController#create as HTML
+  Parameters: {"tasks" => [{"title" => "qaz", "start_time" => "10", "end_time" => "10", "am_start" => false, "am_end" => true, "days_of_week" => []}, {"title" => "zasd", "start_time" => "2", "end_time" => "5", "am_start" => true, "am_end" => true, "days_of_week" => []}], "task" => {}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+  [1m[36mTask Create (6.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('qaz', NULL, NULL, NULL, NULL, NULL, '10', '10', '', 0, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+  [1m[36mTask Create (1.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('zasd', NULL, NULL, NULL, NULL, NULL, '2', '5', '', 1, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:13:in 'block in TasksController#create'
+Completed 201 Created in 64ms (Views: 1.7ms | ActiveRecord: 18.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+

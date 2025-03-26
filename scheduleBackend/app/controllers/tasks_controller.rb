@@ -1,4 +1,3 @@
-# filepath: /home/daniellujo/SchedulerBackend/scheduleBackend/app/controllers/tasks_controller.rb
 class TasksController < ApplicationController
     def create
       # Extract the array of tasks from the request
@@ -9,6 +8,15 @@ class TasksController < ApplicationController
   
       # Iterate over each task and attempt to save it
       tasks.each do |task_params|
+        # Ensure task_params is a Hash or ActionController::Parameters
+        unless task_params.is_a?(Hash) || task_params.is_a?(ActionController::Parameters)
+          render json: { errors: ["Invalid task format"] }, status: :unprocessable_entity and return
+        end
+  
+        # Wrap task_params in ActionController::Parameters if necessary
+        task_params = ActionController::Parameters.new(task_params) unless task_params.is_a?(ActionController::Parameters)
+  
+        # Permit the task parameters
         task = Task.new(task_params.permit(:title, :start_time, :end_time, :am_start, :am_end, days_of_week: []))
         if task.save
           created_tasks << task

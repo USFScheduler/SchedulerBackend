@@ -12,4 +12,21 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+ # config/routes.rb
+  namespace :api do
+    namespace :v1 do
+      resources :canvas, only: [] do
+        collection do
+          get :courses
+          get 'courses/:course_id/assignments', to: 'canvas#assignments'
+          get :upcoming_assignments
+          get :calendar_events
+          get :test_connection
+        end
+      end
+    end
+  end
+
+
+
 end

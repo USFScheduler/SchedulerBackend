@@ -57,6 +57,8 @@ group :development, :test do
   
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 
 
 gem "rspec-rails", "~> 7.1"
@@ -64,3 +66,4 @@ gem "rspec-rails", "~> 7.1"
 gem "factory_bot_rails", "~> 6.4"
 gem "database_cleaner", "~> 2.1"
 gem "rspec-json_expectations", "~> 2.2"
+gem 'httparty'

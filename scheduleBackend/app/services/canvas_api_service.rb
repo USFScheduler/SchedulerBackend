@@ -15,13 +15,13 @@ class CanvasApiService
     self.class.get("/courses")
   end
   
-  def get_assignments(course_id)
-    self.class.get("/courses/#{course_id}/assignments")
-  end
+  # def get_assignments(course_id)
+  #   self.class.get("/courses/#{course_id}/assignments")
+  # end
   
-  def get_assignment_submissions(course_id, assignment_id)
-    self.class.get("/courses/#{course_id}/assignments/#{assignment_id}/submissions")
-  end
+  # def get_assignment_submissions(course_id, assignment_id)
+  #   self.class.get("/courses/#{course_id}/assignments/#{assignment_id}/submissions")
+  # end
   
   def get_upcoming_assignments
     # Get assignments due in the next two weeks
@@ -29,11 +29,12 @@ class CanvasApiService
     self.class.get("/users/self/upcoming_events?type=assignment&end_date=#{two_weeks_from_now}")
   end
   
-  def get_calendar_events(start_date, end_date)
-    # Format dates as ISO8601 strings
-    start_date_iso = start_date.to_time.iso8601
-    end_date_iso = end_date.to_time.iso8601
+
+  # def get_calendar_events(start_date, end_date)
+  #   # Format dates as ISO8601 strings
+  #   start_date_iso = start_date.to_time.iso8601
+  #   end_date_iso = end_date.to_time.iso8601
     
-    self.class.get("/calendar_events?start_date=#{start_date_iso}&end_date=#{end_date_iso}&context_codes[]=user_self")
-  end
+  #   self.class.get("/calendar_events?start_date=#{start_date_iso}&end_date=#{end_date_iso}&context_codes[]=user_self")
+  # end
 end

@@ -17,10 +17,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :canvas, only: [] do
         collection do
-          get :courses
-          get 'courses/:course_id/assignments', to: 'canvas#assignments'
+          # get :courses
+          get :assignments
           get :upcoming_assignments
-          get :calendar_events
+          # get :calendar_events
           get :test_connection
         end
       end

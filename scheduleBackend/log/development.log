@@ -506,3 +506,452 @@ Processing by TasksController#create as HTML
 Completed 201 Created in 64ms (Views: 1.7ms | ActiveRecord: 18.2ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to CreateTaskDates (20250326022335)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","created_at","updated_at" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "end_time" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","updated_at" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "end_time" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" datetime(6) NOT NULL, "end_time" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" datetime(6) NOT NULL) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" varchar, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tasks" ADD "days_of_week" text DEFAULT '' /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tasks" ADD "am_start" boolean DEFAULT 1 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "tasks" ADD "am_end" boolean DEFAULT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250326022335') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+Migrating to ChangeUserIdToBeNullableInTasks (20250326155314)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer NOT NULL, "start_time" varchar, "end_time" varchar, "days_of_week" text DEFAULT '', "am_start" boolean DEFAULT 1, "am_end" boolean DEFAULT 1) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_user_id" ON "atasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end" FROM "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "tasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "start_date" date, "end_date" date, "deadline" datetime(6), "priority" integer, "user_id" integer, "start_time" varchar, "end_time" varchar, "days_of_week" text DEFAULT '', "am_start" boolean DEFAULT 1, "am_end" boolean DEFAULT 1, CONSTRAINT "fk_rails_4d2a9e4d7e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_user_id" ON "tasks" ("user_id") /*application='SchedulerBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end")
+                     SELECT "id","title","start_date","end_date","deadline","priority","user_id","start_time","end_time","days_of_week","am_start","am_end" FROM "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atasks" /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='SchedulerBackend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250326155314') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+Migrating to AddRefreshTokenToUsers (20250408174851)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "users" ADD "refresh_token" varchar /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250408174851') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Migrating to AddRefreshTokenExpiresAtToUsers (20250408184621)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "users" ADD "refresh_token_expires_at" datetime(6) /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250408184621') RETURNING "version" /*application='SchedulerBackend'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='SchedulerBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-04-08 15:21:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 285ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 60.0ms)
+
+
+Started GET "/debug/users" for ::1 at 2025-04-08 15:22:18 -0400
+Processing by UsersController#debug_index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='debug_index',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:26:in 'Enumerable#map'
+Completed 200 OK in 43ms (Views: 0.9ms | ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-04-08 15:24:04 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: user):
+  
+app/controllers/users_controller.rb:41:in 'UsersController#user_params'
+app/controllers/users_controller.rb:5:in 'UsersController#create'
+Started GET "/users" for ::1 at 2025-04-08 15:26:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started POST "/users" for ::1 at 2025-04-08 15:31:19 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user" => {"name" => "TestUser", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#create'
+  [1m[36mUser Exists? (6.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@gmail.com' LIMIT 1 /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#create'
+Completed 422 Unprocessable Content in 194ms (Views: 0.3ms | ActiveRecord: 8.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-04-08 15:31:52 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user" => {"name" => "TestUser", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#create'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "canvas_api_token", "refresh_token", "refresh_token_expires_at") VALUES ('TestUser', 'testTest@gmail.com', '$2a$12$N.gzfrH5TbFTtaqURNfevuV2I/LR5PiIMqXcYnwSf.oIJK/L2DnXW', '2025-04-08 19:31:53.130997', '2025-04-08 19:31:53.130997', NULL, NULL, NULL) RETURNING "id" /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:6:in 'UsersController#create'
+Completed 201 Created in 189ms (Views: 0.1ms | ActiveRecord: 5.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 15:34:30 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@example.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 9ms (Views: 0.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 15:34:39 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-08 19:34:39.335848', "refresh_token" = '3e2cdb8445fb7eab1ad582d92d4c0d1c2efdb4cb1da3b063e919b613be60ecb6', "refresh_token_expires_at" = '2025-05-08 19:34:39.320137' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 209ms (Views: 2.4ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 15:41:30 -0400
+Processing by TasksController#index as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "task" => {}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 2.6ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/task" for ::1 at 2025-04-08 15:41:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/task"):
+  
+Started GET "/tasks" for ::1 at 2025-04-08 15:41:38 -0400
+Processing by TasksController#index as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "task" => {}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/refresh" for ::1 at 2025-04-08 15:42:06 -0400
+Processing by Api::V1::AuthController#refresh as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."refresh_token" IS NULL LIMIT 1 /*action='refresh',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:30:in 'Api::V1::AuthController#refresh'
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 15:42:46 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-08 19:42:46.317676', "refresh_token" = 'a98355ff1252b0032b1ace8cdf9d4dad0fe0805e89f3dff031162a961b0f00cd', "refresh_token_expires_at" = '2025-05-08 19:42:46.308901' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 186ms (Views: 0.4ms | ActiveRecord: 5.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 15:51:18 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-08 19:51:18.432344', "refresh_token" = 'e37fc69b9b8ef10e09ee9c923fdee37e7681c73e64169e0523538f32ca002960', "refresh_token_expires_at" = '2025-05-08 19:51:18.427415' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 180ms (Views: 0.6ms | ActiveRecord: 5.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 15:53:05 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-08 19:53:05.666106', "refresh_token" = 'c607cb4b1b1ead3e28605427169213a836931ad622f56743452aca5e48a77452', "refresh_token_expires_at" = '2025-05-08 19:53:05.660427' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 176ms (Views: 1.2ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 15:54:17 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/tasks"):
+  
+Started GET "/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 15:55:02 -0400
+Processing by TasksController#index as */*
+  Parameters: {"AccessToken" => "[FILTERED]"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 15:55:35 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-08 19:55:35.681378', "refresh_token" = '40739b347b400266427839ab4edf99159d87c5ae33913cdbe9cde134b4d4f950', "refresh_token_expires_at" = '2025-05-08 19:55:35.676897' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 173ms (Views: 0.2ms | ActiveRecord: 1.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 15:55:55 -0400
+Processing by TasksController#index as */*
+  Parameters: {"AccessToken" => "[FILTERED]"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 15:56:03 -0400
+Processing by TasksController#index as */*
+  Parameters: {"AccessToken" => "[FILTERED]"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 15:58:32 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-08 19:58:32.572386', "refresh_token" = '4df0de4535a6d7440f7f7124b6be1cbb9248b96dee7334faa72f3625df4c3247', "refresh_token_expires_at" = '2025-05-08 19:58:32.569726' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 176ms (Views: 0.4ms | ActiveRecord: 3.3ms (3 queries, 0 cached) | GC: 3.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 15:59:00 -0400
+Processing by TasksController#index as */*
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 15:59:04 -0400
+Processing by TasksController#index as */*
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 15:59:09 -0400
+Processing by TasksController#index as */*
+  Parameters: {"AccessToken" => "[FILTERED]"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 15:59:47 -0400
+Processing by TasksController#index as */*
+  Parameters: {"AccessToken" => "[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1 /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTask Load (5.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:40:in 'TasksController#index'
+Completed 200 OK in 48ms (Views: 36.3ms | ActiveRecord: 5.5ms (2 queries, 0 cached) | GC: 6.9ms)
+
+
+Started GET "/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 16:02:00 -0400
+Processing by TasksController#index as */*
+  Parameters: {"AccessToken" => "[FILTERED]"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-08 16:02:05 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-08 20:02:06.137023', "refresh_token" = 'd241a54cfaea883cca234d50db63f19944da8993168b04b1b816e1b5cbff2da5', "refresh_token_expires_at" = '2025-05-08 20:02:06.132614' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 176ms (Views: 0.2ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/tasks?AccessToken=[FILTERED]" for ::1 at 2025-04-08 16:02:23 -0400
+Processing by TasksController#index as */*
+  Parameters: {"AccessToken" => "[FILTERED]"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 16:02:44 -0400
+Processing by TasksController#index as */*
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 16:02:58 -0400
+Processing by TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1 /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:40:in 'TasksController#index'
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 16:03:36 -0400
+Processing by TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1 /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:40:in 'TasksController#index'
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 16:04:05 -0400
+Processing by TasksController#index as */*
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-08 16:04:11 -0400
+Processing by TasksController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1 /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/tasks_controller.rb:40:in 'TasksController#index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+

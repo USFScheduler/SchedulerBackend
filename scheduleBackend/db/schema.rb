@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_26_155314) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_08_184621) do
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
     t.date "start_date"
@@ -33,6 +33,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_26_155314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "canvas_api_token"
+    t.string "refresh_token"
+    t.datetime "refresh_token_expires_at"
   end
 
   add_foreign_key "tasks", "users"

@@ -1,4 +1,8 @@
 class TasksController < ApplicationController
+
+  before_action :authorize_request #Establish JWT requirement
+
+
     def create
       # Extract the array of tasks from the request
       tasks = params[:tasks]
@@ -43,3 +47,5 @@ class TasksController < ApplicationController
       params.require(:task).permit(:title, :start_time, :end_time, :am_start, :am_end, days_of_week: [])
     end
   end
+
+    #Might need to delete later

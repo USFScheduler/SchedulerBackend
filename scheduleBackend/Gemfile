@@ -35,6 +35,7 @@ gem "faker"
 
 gem "fast_jsonapi"
 
+gem 'jwt'          # For JSON Web Token encoding/decoding
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

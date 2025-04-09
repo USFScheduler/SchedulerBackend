@@ -14,3 +14,5 @@ class SessionsController < ApplicationController
       # Handle logout logic here
     end
   end
+
+  #Might need to delete later

@@ -47,3 +47,5 @@ class TasksController < ApplicationController
       params.require(:task).permit(:title, :start_time, :end_time, :am_start, :am_end, days_of_week: [])
     end
   end
+
+    #Might need to delete later

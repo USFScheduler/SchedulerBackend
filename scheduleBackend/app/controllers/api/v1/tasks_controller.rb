@@ -15,7 +15,7 @@ module Api
 
           task_params = ActionController::Parameters.new(task_params) unless task_params.is_a?(ActionController::Parameters)
 
-          task = Task.new(task_params.permit(:title, :start_time, :end_time, :am_start, :am_end, days_of_week: []))
+          task = Task.new(task_params.permit(:title, :start_time, :end_time, :am_start, :am_end, :user_id, days_of_week: []))
 
           if task.save
             created_tasks << task

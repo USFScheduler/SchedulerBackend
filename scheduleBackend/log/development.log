@@ -955,3 +955,1495 @@ Processing by TasksController#index as */*
 Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2025-04-09 21:36:24 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 279ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 57.8ms)
+
+
+Started GET "/icon.png" for 127.0.0.1 at 2025-04-09 21:36:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+Started POST "/api/v1/login" for ::1 at 2025-04-09 21:41:29 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-10 01:41:29.696271', "refresh_token" = '5f827b7d349f3c065333155bf3d901dfcff965938337b3159b3c41d6b10c91ec', "refresh_token_expires_at" = '2025-05-10 01:41:29.678168' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 266ms (Views: 3.1ms | ActiveRecord: 16.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2025-04-09 21:41:54 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2025-04-09 21:42:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2025-04-09 21:42:14 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/api/v1/tasks" for ::1 at 2025-04-09 21:45:23 -0400
+Processing by Api::V1::TasksController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1 /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /*action='index',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:32:in 'Api::V1::TasksController#index'
+Completed 200 OK in 60ms (Views: 50.2ms | ActiveRecord: 1.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 21:52:19 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'testTest@gmail.com' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-10 01:52:19.446061', "refresh_token" = 'c20178f8faf92e0d5ec2f2d485ed3ad72eddac6735899d6d77ba99fc7937268c', "refresh_token_expires_at" = '2025-05-10 01:52:19.433868' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 197ms (Views: 0.9ms | ActiveRecord: 6.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-04-09 21:56:31 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 170ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 47.0ms)
+
+
+Started GET "/debug/users" for ::1 at 2025-04-09 21:59:17 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/debug/users"):
+  
+Started GET "/api/v1/users" for ::1 at 2025-04-09 22:00:30 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+Started POST "/api/v1/users" for ::1 at 2025-04-09 22:00:33 -0400
+Processing by Api::V1::UsersController#create as */*
+Completed 400 Bad Request in 13ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: user):
+  
+app/controllers/api/v1/users_controller.rb:46:in 'Api::V1::UsersController#user_params'
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+Started POST "/api/v1/users" for ::1 at 2025-04-09 22:00:54 -0400
+Processing by Api::V1::UsersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: user):
+  
+app/controllers/api/v1/users_controller.rb:46:in 'Api::V1::UsersController#user_params'
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:06:51 -0400
+Processing by Api::V1::AuthController#login as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 12ms (Views: 0.2ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:08:02 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:08:03 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 7ms (Views: 0.2ms | ActiveRecord: 3.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:08:19 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 8ms (Views: 0.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:08:20 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "auth" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:08:55 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"username" => "TestUser", "password" => "[FILTERED]", "auth" => {"username" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 3ms (Views: 0.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:09:02 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"username" => "TestUser@gmail.com", "password" => "[FILTERED]", "auth" => {"username" => "TestUser@gmail.com", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:09:03 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"username" => "TestUser@gmail.com", "password" => "[FILTERED]", "auth" => {"username" => "TestUser@gmail.com", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-09 22:09:53 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-10 02:09:53.543108', "refresh_token" = '45ba62e472babb1fc32ee8c2356bc55c861fca68b5263878a5eddb5235184e17', "refresh_token_expires_at" = '2025-05-10 02:09:53.523242' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 244ms (Views: 2.9ms | ActiveRecord: 6.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:54:04 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:54:12 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:55:13 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:55:35 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:55:36 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:55:36 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:56:16 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:57:16 -0400
+  
+ActionController::RoutingError (uninitialized constant AuthController)
+Caused by: ActionDispatch::MissingController (uninitialized constant AuthController)
+Caused by: NameError (uninitialized constant AuthController)
+
+Information for: ActionController::RoutingError (uninitialized constant AuthController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant AuthController):
+  
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant AuthController):
+  
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'Module#const_get'
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.1) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:57:21 -0400
+  
+ActionController::RoutingError (uninitialized constant AuthController)
+Caused by: ActionDispatch::MissingController (uninitialized constant AuthController)
+Caused by: NameError (uninitialized constant AuthController)
+
+Information for: ActionController::RoutingError (uninitialized constant AuthController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant AuthController):
+  
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant AuthController):
+  
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'Module#const_get'
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.1) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:57:22 -0400
+  
+ActionController::RoutingError (uninitialized constant AuthController)
+Caused by: ActionDispatch::MissingController (uninitialized constant AuthController)
+Caused by: NameError (uninitialized constant AuthController)
+
+Information for: ActionController::RoutingError (uninitialized constant AuthController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant AuthController):
+  
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant AuthController):
+  
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'Module#const_get'
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.1) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:57:22 -0400
+  
+ActionController::RoutingError (uninitialized constant AuthController)
+Caused by: ActionDispatch::MissingController (uninitialized constant AuthController)
+Caused by: NameError (uninitialized constant AuthController)
+
+Information for: ActionController::RoutingError (uninitialized constant AuthController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant AuthController):
+  
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:102:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NameError (uninitialized constant AuthController):
+  
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'Module#const_get'
+activesupport (8.0.1) lib/active_support/inflector/methods.rb:290:in 'ActiveSupport::Inflector#constantize'
+activesupport (8.0.1) lib/active_support/core_ext/string/inflections.rb:74:in 'String#constantize'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:99:in 'ActionDispatch::Request#controller_class_for'
+actionpack (8.0.1) lib/action_dispatch/http/request.rb:91:in 'ActionDispatch::Request#controller_class'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:61:in 'ActionDispatch::Routing::RouteSet::Dispatcher#controller'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:48:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.1.11) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.1.11) lib/rack/conditional_get.rb:43:in 'Rack::ConditionalGet#call'
+rack (3.1.11) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.11) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.11) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.1) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:58:52 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "wronguser", "password" => "[FILTERED]", "user" => {"name" => "wronguser"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'wronguser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 401 Unauthorized in 8ms (Views: 0.3ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:58:58 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "user" => {"name" => "TestUser"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 200 OK in 172ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:59:14 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "user" => {"name" => "TestUser"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 200 OK in 168ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:59:16 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "wronguser", "password" => "[FILTERED]", "user" => {"name" => "wronguser"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'wronguser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-09 22:59:32 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "user" => {"name" => "TestUser"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 200 OK in 172ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-09 23:00:09 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "user" => {"name" => "TestUser"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 200 OK in 168ms (Views: 1.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-10 21:08:19 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by UsersController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "user" => {"name" => "TestUser"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 200 OK in 196ms (Views: 0.3ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-10 21:17:38 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "user" => {"name" => "TestUser"}}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 200 OK in 180ms (Views: 0.2ms | ActiveRecord: 7.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-10 21:34:10 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 01:34:10.378245', "refresh_token" = 'ed3ee37823bfac7cf368c73ad65c2ff8f61b7d9b3bbec6d1efe045ab33dcc7f6', "refresh_token_expires_at" = '2025-05-11 01:34:10.371053' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 194ms (Views: 2.3ms | ActiveRecord: 8.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-10 21:48:10 -0400
+Processing by Api::V1::AuthController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 01:48:10.603337', "refresh_token" = 'be1b983bbc1d1b3961191392771a470c597eed2e68c5569996e0fdee74ae2de9', "refresh_token_expires_at" = '2025-05-11 01:48:10.584172' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 210ms (Views: 3.2ms | ActiveRecord: 6.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:04:03 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:04:03.512755', "refresh_token" = 'f61bfbe8c91bf2144caa2e7145bb613af98e0216febf2ebd70a62e34e6f4a94f', "refresh_token_expires_at" = '2025-05-11 02:04:03.508983' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 186ms (Views: 3.5ms | ActiveRecord: 5.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:04:04 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:04:04.916042', "refresh_token" = 'e079699fb56cdbac44085ed47eb273da0b1d9361c26246195be5c1c7f7e2667c', "refresh_token_expires_at" = '2025-05-11 02:04:04.908419' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 193ms (Views: 1.1ms | ActiveRecord: 2.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:04:55 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:04:55.512012', "refresh_token" = '1510a714e894ee88307652f7017c92bf84b4f047049b5d41825182eb8d6ea8ef', "refresh_token_expires_at" = '2025-05-11 02:04:55.508040' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 178ms (Views: 0.4ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:04:56 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:04:56.871068', "refresh_token" = '7e471ced1966a176c2e54e5ac056e54417a8336e68e7244a7fc14b46be2c6646', "refresh_token_expires_at" = '2025-05-11 02:04:56.865864' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 178ms (Views: 0.3ms | ActiveRecord: 2.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:39:14 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (7.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:39:14.979529', "refresh_token" = 'd48d6e150259bbac82a01f4db83fd9fafdd23ecc55dba0d0fe8996e8f9b19bfb', "refresh_token_expires_at" = '2025-05-11 02:39:14.963235' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 208ms (Views: 1.3ms | ActiveRecord: 15.7ms (3 queries, 0 cached) | GC: 18.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:39:16 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (23.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:39:16.366525', "refresh_token" = '745529ebf26360d4f3dba83652d68f0b85b8436f37ed6d9dec018a9a0c269209', "refresh_token_expires_at" = '2025-05-11 02:39:16.339106' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 204ms (Views: 0.4ms | ActiveRecord: 23.7ms (3 queries, 0 cached) | GC: 25.4ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:39:16 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:39:16.820348', "refresh_token" = 'c5e857f2dee22ca09cb174499110eef85825cfebe83a7ee0e165728a9226ce79', "refresh_token_expires_at" = '2025-05-11 02:39:16.816079' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 175ms (Views: 0.5ms | ActiveRecord: 2.4ms (3 queries, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-10 22:39:17 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-11 02:39:17.273543', "refresh_token" = '0c0e8faaf420ca550a21ae2a2d63a472048602cbece6149ee0537d87d5e4a96f', "refresh_token_expires_at" = '2025-05-11 02:39:17.269470' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 181ms (Views: 0.3ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:09:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:09:15.768305', "refresh_token" = '169b0ba859a3beee15326e72d8a8e5b76350962ea38a63ee8a1a3447a12979c3', "refresh_token_expires_at" = '2025-05-14 14:09:15.754079' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 258ms (Views: 1.9ms | ActiveRecord: 17.3ms (3 queries, 0 cached) | GC: 28.1ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-04-14 10:11:04 -0400
+Processing by UsersController#login as */*
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "user" => {"name" => "TestUser"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:15:in 'UsersController#login'
+Completed 200 OK in 169ms (Views: 0.2ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:11:21 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:11:21.663552', "refresh_token" = '2501d0885bbd7d7a409c78200a9ace2d30e0d0f3e9a51a4ebad90767cecd7f7e', "refresh_token_expires_at" = '2025-05-14 14:11:21.644659' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 204ms (Views: 3.2ms | ActiveRecord: 1.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:17:43 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:17:43.709648', "refresh_token" = '26a57f64422034469212bb90a6007370991d2546d84552c7f1476c546070fcd3', "refresh_token_expires_at" = '2025-05-14 14:17:43.705636' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 184ms (Views: 3.2ms | ActiveRecord: 6.0ms (3 queries, 0 cached) | GC: 0.5ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:17:44 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:17:44.606301', "refresh_token" = '7775a3891f05b901926a71a532c681e56ec466858207f954095dd541e1c05be6', "refresh_token_expires_at" = '2025-05-14 14:17:44.597708' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 180ms (Views: 1.4ms | ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 1.1ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:17:44 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:17:45.059228', "refresh_token" = '9cadc7132e89548ad3b0cab7fc9201dbe4ad57ffe010b751a43b0aa3508b5d40', "refresh_token_expires_at" = '2025-05-14 14:17:45.055704' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 171ms (Views: 0.3ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:18:33 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:18:33.390988', "refresh_token" = '80f41c6f194a56d50b96be3285f97d40ea5eae5cea2a957082b4b961477f52b7', "refresh_token_expires_at" = '2025-05-14 14:18:33.386005' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 174ms (Views: 0.2ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:18:35 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:18:35.401571', "refresh_token" = '9b000815358b0f001185b2fe2c0e378476403dcddae061eaf464f2aea6079e58', "refresh_token_expires_at" = '2025-05-14 14:18:35.397663' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 173ms (Views: 0.3ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:18:36 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:18:36.534441', "refresh_token" = '291c5c013355997d89dbbbd0bb365d8182446805f89f96b89efb23c32fee05aa', "refresh_token_expires_at" = '2025-05-14 14:18:36.531319' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 172ms (Views: 0.2ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:18:37 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:18:37.290484', "refresh_token" = '88fbb05b8020ff946533b3e59ba51b6e71b70f1cb1b37a04071e8c635f5a4221', "refresh_token_expires_at" = '2025-05-14 14:18:37.287257' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 170ms (Views: 0.6ms | ActiveRecord: 1.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:25:27 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:25:27.657415', "refresh_token" = 'ab116643533773bbdad12371337445b23811dcfca1c855847b55b6c41d400950', "refresh_token_expires_at" = '2025-05-14 14:25:27.653742' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 181ms (Views: 0.5ms | ActiveRecord: 5.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:29:23 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:29:23.246341', "refresh_token" = '271e2791e00c55cbcfd971a9377f7422522b39f0c97db820eeb3ce20a0a8aa7d', "refresh_token_expires_at" = '2025-05-14 14:29:23.242413' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 173ms (Views: 0.2ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:29:40 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:29:40.522171', "refresh_token" = 'fe2c926e828a2f7bd93c699b69086dc34d7ed8c4836cbf96660fdcdfe231afc6', "refresh_token_expires_at" = '2025-05-14 14:29:40.519920' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 173ms (Views: 0.3ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:30:05 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:30:05.907167', "refresh_token" = 'ff74408be09fcd51e8be72c91ee7365a0fdf789338e930b637e7d94be4d0b37f', "refresh_token_expires_at" = '2025-05-14 14:30:05.905052' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 168ms (Views: 0.1ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:30:11 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:30:11.952743', "refresh_token" = 'ea769bb874e9411302a051a129b570cb38957ac539db5b4ea7dac39279dfaf3d', "refresh_token_expires_at" = '2025-05-14 14:30:11.948250' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 178ms (Views: 1.4ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:34:08 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:34:08.689814', "refresh_token" = 'd7b5c20baa38d0cfa96377ba3a3dfd85bc573afbc0bbf3c84a4a709f31a522af', "refresh_token_expires_at" = '2025-05-14 14:34:08.682752' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 178ms (Views: 0.2ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:34:15 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:34:15.807358', "refresh_token" = 'd0089934b4c0ba879adf6ce61f012fd947d285a3194ee8050cd7bf02e7c1e3ef', "refresh_token_expires_at" = '2025-05-14 14:34:15.803123' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 171ms (Views: 0.2ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:34:37 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:34:37.356532', "refresh_token" = 'b964efaa94fdde65d4d149f7d592ac035accffb2a6ed23429cf0948b8b571c41', "refresh_token_expires_at" = '2025-05-14 14:34:37.354198' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 169ms (Views: 0.2ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-14 10:35:41 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:35:41.185175', "refresh_token" = '6517c07d85c5fdebe215acda43773b42f63f30ac85f9ef51737fe2f8624db4fe', "refresh_token_expires_at" = '2025-05-14 14:35:41.182979' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 167ms (Views: 0.2ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:37:25 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:37:25.589753', "refresh_token" = 'ac1b4c24e559c4c9435c102e1dbcd6edd502a5951873468cd28e8a72a62beed5', "refresh_token_expires_at" = '2025-05-14 14:37:25.587624' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 169ms (Views: 0.2ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:37:29 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+Completed 401 Unauthorized in 165ms (Views: 0.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for 127.0.0.1 at 2025-04-14 10:37:34 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "TestUser", "password" => "[FILTERED]", "auth" => {"name" => "TestUser", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'TestUser' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'testTest@gmail.com' AND "users"."id" != 15 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:37:35.123551', "refresh_token" = '235a0401c59b9644f0ac5fc068a2a41472dfe5e6dfc6e6153941d9c346f8de59', "refresh_token_expires_at" = '2025-05-14 14:37:35.121329' WHERE "users"."id" = 15 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 171ms (Views: 0.1ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-04-14 10:42:02 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_token" => "[FILTERED]"}}
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.)
+Caused by: NoMethodError (undefined method 'canvas_token=' for an instance of User)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+
+Information for cause: NoMethodError (undefined method 'canvas_token=' for an instance of User):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+Started POST "/api/v1/users" for ::1 at 2025-04-14 10:43:42 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_token" => "[FILTERED]"}}
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.)
+Caused by: NoMethodError (undefined method 'canvas_token=' for an instance of User)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+
+Information for cause: NoMethodError (undefined method 'canvas_token=' for an instance of User):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+Started POST "/api/v1/users" for ::1 at 2025-04-14 10:43:44 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_token" => "[FILTERED]"}}
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.)
+Caused by: NoMethodError (undefined method 'canvas_token=' for an instance of User)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+
+Information for cause: NoMethodError (undefined method 'canvas_token=' for an instance of User):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-04-14 10:47:14 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_token" => "[FILTERED]"}}
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.)
+Caused by: NoMethodError (undefined method 'canvas_token=' for an instance of User)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+
+Information for cause: NoMethodError (undefined method 'canvas_token=' for an instance of User):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-04-14 10:48:20 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_token" => "[FILTERED]"}}
+Completed 500 Internal Server Error in 165ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.)
+Caused by: NoMethodError (undefined method 'canvas_token=' for an instance of User)
+
+Information for: ActiveModel::UnknownAttributeError (unknown attribute 'canvas_token' for User.):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+
+Information for cause: NoMethodError (undefined method 'canvas_token=' for an instance of User):
+  
+app/controllers/api/v1/users_controller.rb:7:in 'Api::V1::UsersController#create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2025-04-14 10:52:03 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_api_token" => "[FILTERED]"}}
+[31mUnpermitted parameter: :canvas_api_token. Context: { controller: Api::V1::UsersController, action: create, request: #<ActionDispatch::Request:0x00007f633aaac270>, params: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_api_token" => "[FILTERED]"}, "controller" => "api/v1/users", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 't@gmail.com' LIMIT 1 /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "canvas_api_token", "refresh_token", "refresh_token_expires_at") VALUES ('UserTest', 't@gmail.com', '$2a$12$NOJh/1vBG5Cc/RTFivWtMuaryjutfNFz6O1BN4zYSV2zhj1NoSuNa', '2025-04-14 14:52:03.962913', '2025-04-14 14:52:03.962913', NULL, NULL, NULL) RETURNING "id" /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 180ms (Views: 0.2ms | ActiveRecord: 5.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-04-14 10:54:48 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_api_token" => "[FILTERED]"}}
+[31mUnpermitted parameter: :canvas_api_token. Context: { controller: Api::V1::UsersController, action: create, request: #<ActionDispatch::Request:0x00007f633ab05140>, params: {"user" => {"name" => "UserTest", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_api_token" => "[FILTERED]"}, "controller" => "api/v1/users", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 't@gmail.com' LIMIT 1 /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 422 Unprocessable Content in 170ms (Views: 0.5ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-04-14 10:55:07 -0400
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user" => {"name" => "UT", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_api_token" => "[FILTERED]"}}
+[31mUnpermitted parameter: :canvas_api_token. Context: { controller: Api::V1::UsersController, action: create, request: #<ActionDispatch::Request:0x00007f633ac4d0c0>, params: {"user" => {"name" => "UT", "password" => "[FILTERED]", "email" => "[FILTERED]", "canvas_api_token" => "[FILTERED]"}, "controller" => "api/v1/users", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'UT@gmail.com' LIMIT 1 /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "canvas_api_token", "refresh_token", "refresh_token_expires_at") VALUES ('UT', 'UT@gmail.com', '$2a$12$4czCB7merJkhpi8oqM2Vg.MoVhjBGh7OyRANUVeaVlu5/c7t2FDEe', '2025-04-14 14:55:07.332766', '2025-04-14 14:55:07.332766', NULL, NULL, NULL) RETURNING "id" /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 171ms (Views: 0.1ms | ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-14 10:55:49 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "UT", "password" => "[FILTERED]", "auth" => {"name" => "UT", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'UT' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'UT@gmail.com' AND "users"."id" != 17 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-14 14:55:49.284282', "refresh_token" = '056fd6a25fd0883690e0b377c8a7050cdab3a4b907d1061bc41dab87749942ac', "refresh_token_expires_at" = '2025-05-14 14:55:49.282249' WHERE "users"."id" = 17 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 168ms (Views: 0.1ms | ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-04-23 23:10:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/daniellujo/.local/share/mise/installs/ruby/3.4.2/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 248ms (Views: 4.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 44.2ms)
+
+
+Started GET "/icon.png" for 127.0.0.1 at 2025-04-23 23:10:30 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+  [1m[36mTask Load (5.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /* loading for pp */ LIMIT 11 /*application='SchedulerBackend'*/[0m
+Started POST "/api/v1/login" for ::1 at 2025-04-23 23:55:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "UserTest", "password" => "[FILTERED]", "auth" => {"name" => "UserTest", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'UserTest' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 't@gmail.com' AND "users"."id" != 16 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-24 03:55:02.641577', "refresh_token" = '11bbb5cf10a9048c9b65b10f78bd2bb8e190b739a6c6eac5c4f6c49ee5ebf9c3', "refresh_token_expires_at" = '2025-05-24 03:55:02.628137' WHERE "users"."id" = 16 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 245ms (Views: 2.4ms | ActiveRecord: 15.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/tasks" for ::1 at 2025-04-23 23:55:21 -0400
+Processing by Api::V1::TasksController#create as HTML
+  Parameters: {"tasks" => [{"title" => "Cat", "start_time" => "7", "end_time" => "8", "am_start" => true, "am_end" => true, "days_of_week" => ["T", "TH"]}], "task" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTask Create (1.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('Cat', NULL, NULL, NULL, NULL, NULL, '7', '8', 'T,TH', 1, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+Completed 201 Created in 29ms (Views: 0.6ms | ActiveRecord: 2.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments" for ::1 at 2025-04-23 23:55:27 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+Completed 502 Bad Gateway in 313ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" /* loading for pp */ LIMIT 11 /*application='SchedulerBackend'*/[0m
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT 1 /*application='SchedulerBackend'*/[0m
+Started POST "/api/v1/login" for ::1 at 2025-04-24 00:30:22 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "UserTest", "password" => "[FILTERED]", "auth" => {"name" => "UserTest", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'UserTest' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 't@gmail.com' AND "users"."id" != 16 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-24 04:30:22.260921', "refresh_token" = 'cbac01715898a3319ecfc390b47b8cb54c3603f2ca68fd09358fdc4433708cd5', "refresh_token_expires_at" = '2025-05-24 04:30:22.251832' WHERE "users"."id" = 16 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 203ms (Views: 3.2ms | ActiveRecord: 6.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/tasks" for ::1 at 2025-04-24 00:30:38 -0400
+Processing by Api::V1::TasksController#create as HTML
+  Parameters: {"tasks" => [{"title" => "dog", "start_time" => "8", "end_time" => "9", "am_start" => true, "am_end" => true, "days_of_week" => ["M", "T", "W", "TH", "F"], "user_id" => 16}], "task" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::TasksController, action: create, request: #<ActionDispatch::Request:0x00007f9670ef96c0>, params: {"tasks" => [{"title" => "dog", "start_time" => "8", "end_time" => "9", "am_start" => true, "am_end" => true, "days_of_week" => ["M", "T", "W", "TH", "F"], "user_id" => 16}], "controller" => "api/v1/tasks", "action" => "create", "task" => {}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('dog', NULL, NULL, NULL, NULL, NULL, '8', '9', 'M,T,W,TH,F', 1, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+Completed 201 Created in 15ms (Views: 2.2ms | ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments" for ::1 at 2025-04-24 00:30:39 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+Completed 502 Bad Gateway in 218ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT 1 /*application='SchedulerBackend'*/[0m
+Started POST "/api/v1/login" for ::1 at 2025-04-24 00:35:52 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name" => "UserTest", "password" => "[FILTERED]", "auth" => {"name" => "UserTest", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'UserTest' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 't@gmail.com' AND "users"."id" != 16 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-24 04:35:53.038517', "refresh_token" = '6a2f3db08e1bc814ddafee69b5fc5b29902cf656db59742819c2283919a86da9', "refresh_token_expires_at" = '2025-05-24 04:35:53.035235' WHERE "users"."id" = 16 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in 'Api::V1::AuthController#login'
+Completed 200 OK in 166ms (Views: 0.8ms | ActiveRecord: 1.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/tasks" for ::1 at 2025-04-24 00:36:08 -0400
+Processing by Api::V1::TasksController#create as HTML
+  Parameters: {"tasks" => [{"title" => "lo", "start_time" => "6", "end_time" => "7", "am_start" => true, "am_end" => true, "days_of_week" => ["M", "T", "W"], "user_id" => 16}], "task" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+[31mUnpermitted parameter: :user_id. Context: { controller: Api::V1::TasksController, action: create, request: #<ActionDispatch::Request:0x00007f9670d8bae0>, params: {"tasks" => [{"title" => "lo", "start_time" => "6", "end_time" => "7", "am_start" => true, "am_end" => true, "days_of_week" => ["M", "T", "W"], "user_id" => 16}], "controller" => "api/v1/tasks", "action" => "create", "task" => {}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('lo', NULL, NULL, NULL, NULL, NULL, '6', '7', 'M,T,W', 1, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments" for ::1 at 2025-04-24 00:36:10 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+Completed 502 Bad Gateway in 250ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT 1 /*application='SchedulerBackend'*/[0m
+Started POST "/api/v1/tasks" for ::1 at 2025-04-24 00:39:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Api::V1::TasksController#create as HTML
+  Parameters: {"tasks" => [{"title" => "lot", "start_time" => "6", "end_time" => "7", "am_start" => true, "am_end" => true, "days_of_week" => ["M", "T", "W"], "user_id" => 16}], "task" => {}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTask Create (5.6ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('lot', NULL, NULL, NULL, NULL, 16, '6', '7', 'M,T,W', 1, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+Completed 201 Created in 102ms (Views: 1.3ms | ActiveRecord: 11.4ms (2 queries, 0 cached) | GC: 26.9ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments" for ::1 at 2025-04-24 00:39:22 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+Completed 502 Bad Gateway in 278ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+  [1m[36mTask Load (2.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT 1 /*application='SchedulerBackend'*/[0m
+Started POST "/api/v1/tasks" for ::1 at 2025-04-24 00:39:48 -0400
+Processing by Api::V1::TasksController#create as HTML
+  Parameters: {"tasks" => [{"title" => "cat in the hat", "start_time" => "6", "end_time" => "7", "am_start" => true, "am_end" => true, "days_of_week" => ["M", "T", "W"], "user_id" => 16}], "task" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in 'ApplicationController#current_user'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "start_date", "end_date", "deadline", "priority", "user_id", "start_time", "end_time", "days_of_week", "am_start", "am_end") VALUES ('cat in the hat', NULL, NULL, NULL, NULL, 16, '6', '7', 'M,T,W', 1, 1) RETURNING "id" /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:20:in 'block in Api::V1::TasksController#create'
+Completed 201 Created in 19ms (Views: 1.2ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments" for ::1 at 2025-04-24 00:39:49 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+Completed 502 Bad Gateway in 245ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT 1 /*application='SchedulerBackend'*/[0m

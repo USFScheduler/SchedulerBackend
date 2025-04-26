@@ -4,7 +4,7 @@ module Api
       class AuthController < ApplicationController
         # POST /api/v1/login
         def login
-            user = User.find_by(email: params[:email])
+            user = User.find_by(name: params[:name])
           
             if user&.authenticate(params[:password])
               access_token = encode_access_token(user)

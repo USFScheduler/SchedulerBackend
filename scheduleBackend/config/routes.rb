@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # Health check
   get "up" => "rails/health#show", as: :rails_health_check
 
+  post 'login', to: 'users#login' # Old login route
+
   # API v1 namespace
   namespace :api do
     namespace :v1 do

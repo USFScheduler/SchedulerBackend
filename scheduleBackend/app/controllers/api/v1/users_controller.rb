@@ -43,7 +43,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation, :canvas_token)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :canvas_api_token)
       end      
     end
   end

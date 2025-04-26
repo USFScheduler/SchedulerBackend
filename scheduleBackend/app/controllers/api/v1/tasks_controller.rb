@@ -32,6 +32,12 @@ module Api
         render json: tasks, status: :ok
       end
 
+      def task_by_user
+        user_id = params[:user_id]
+        tasks = Task.where(user_id: user_id)
+        render json: tasks, status: :ok
+      end
+
       private
 
       def task_params

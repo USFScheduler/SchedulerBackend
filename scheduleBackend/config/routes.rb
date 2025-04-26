@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
       # Task routes
       resources :tasks, only: [:index, :create]
+      get 'tasks_by_user', to: 'tasks#task_by_user', as: 'tasks_by_user'
 
       # Canvas API routes
       resources :canvas, only: [] do

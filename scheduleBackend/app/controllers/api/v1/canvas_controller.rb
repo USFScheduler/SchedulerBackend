@@ -2,7 +2,6 @@
 module Api
   module V1
     class CanvasController < ApplicationController
-      # before_action :authenticate_user!
       before_action :set_canvas_service
       
       # def courses
@@ -79,12 +78,17 @@ module Api
 
       
       def set_canvas_service
-        # You might want to store the API token securely in the user model
-        # or let the user input it and store it in their session
-        # api_token = current_user.canvas_api_token
-        api_token = params[:api_token] || ENV['CANVAS_API_TOKEN']
+        user_id = params[:user_id] || current_user.id # fallback to current_user if no param
+        user = User.find_by(id: user_id)
+      
+        if user.nil? || user.canvas_api_token.blank?
+          render json: { error: "Invalid user or missing Canvas API token" }, status: :unprocessable_entity
+          return
+        end
+      
+        api_token = user.canvas_api_token
         @canvas_service = CanvasApiService.new(api_token)
-      end
+      end      
     end
   end
 end

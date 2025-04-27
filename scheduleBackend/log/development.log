@@ -6030,3 +6030,408 @@ Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.3ms (2 queries, 0 cached
 Completed 200 OK in 1016ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:24:01 -0400
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:24:01 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:24:02 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 719ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:24:02 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Completed 200 OK in 791ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-26 23:24:06 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name"=>"daddy", "password"=>"[FILTERED]", "auth"=>{"name"=>"daddy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'daddy' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daddy@gmail.com' AND "users"."id" != 22 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-27 03:24:06.809908', "refresh_token" = '4093c9dfca3e07d23ea6803a7b231b8f15049537a7edc9f4dab16715a4d4915a', "refresh_token_expires_at" = '2025-05-27 03:24:06.804259' WHERE "users"."id" = 22 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+Completed 200 OK in 205ms (Views: 0.5ms | ActiveRecord: 3.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:24:06 -0400
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:24:06 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Completed 200 OK in 763ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:24:33 -0400
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:24:33 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:24:34 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:24:34 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 774ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:24:34 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Completed 200 OK in 725ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:24:35 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Completed 200 OK in 860ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-26 23:24:41 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name"=>"daddy", "password"=>"[FILTERED]", "auth"=>{"name"=>"daddy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'daddy' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daddy@gmail.com' AND "users"."id" != 22 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-27 03:24:41.743217', "refresh_token" = 'ed393e80df784721766cc0f704c0a5b323b6975492c9d297bae459a306653c0d', "refresh_token_expires_at" = '2025-05-27 03:24:41.738026' WHERE "users"."id" = 22 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+Completed 200 OK in 193ms (Views: 0.5ms | ActiveRecord: 2.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:24:41 -0400
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:24:41 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Completed 200 OK in 637ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+[dotenv] Set [36mCANVAS_API_TOKEN[0m
+[dotenv] Loaded [33m.env[0m
+Started POST "/api/v1/login" for ::1 at 2025-04-26 23:26:01 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SchedulerBackend'*/[0m
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name"=>"daddy", "password"=>"[FILTERED]", "auth"=>{"name"=>"daddy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'daddy' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daddy@gmail.com' AND "users"."id" != 22 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-27 03:26:01.914725', "refresh_token" = '773ff34b485113d7a39f5fba7651d254838b62572d8e9e51f7725872d6d304de', "refresh_token_expires_at" = '2025-05-27 03:26:01.909495' WHERE "users"."id" = 22 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+Completed 200 OK in 240ms (Views: 0.7ms | ActiveRecord: 12.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:26:01 -0400
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:26:01 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 15ms (Views: 5.5ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 1373ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 990.2ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:26:06 -0400
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:26:06 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 712ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:26:08 -0400
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:26:08 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 714ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-26 23:32:13 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name"=>"daddy", "password"=>"[FILTERED]", "auth"=>{"name"=>"daddy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'daddy' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daddy@gmail.com' AND "users"."id" != 22 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-27 03:32:13.600153', "refresh_token" = 'aa511ef9bbf05c4f3d06f215d81a85493d8800b812ba6f8b49aa20f61358d4d1', "refresh_token_expires_at" = '2025-05-27 03:32:13.594368' WHERE "users"."id" = 22 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+Completed 200 OK in 223ms (Views: 0.7ms | ActiveRecord: 9.5ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:32:13 -0400
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:32:13 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 6ms (Views: 2.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 1628ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:32:17 -0400
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:32:17 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 688ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-26 23:35:55 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name"=>"daddy", "password"=>"[FILTERED]", "auth"=>{"name"=>"daddy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'daddy' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daddy@gmail.com' AND "users"."id" != 22 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-27 03:35:56.005670', "refresh_token" = '3ad12dbc11dffc8165d6e2317d2957d8e104d9736a6eefc92e4c78f09164a827', "refresh_token_expires_at" = '2025-05-27 03:35:56.000473' WHERE "users"."id" = 22 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+Completed 200 OK in 201ms (Views: 0.5ms | ActiveRecord: 2.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:35:56 -0400
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:35:56 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Completed 200 OK in 1359ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:36:00 -0400
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:36:00 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 720ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:39:02 -0400
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:39:02 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 8ms (Views: 3.1ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 1232ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-26 23:39:07 -0400
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"name"=>"daddy", "password"=>"[FILTERED]", "auth"=>{"name"=>"daddy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = 'daddy' LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:7:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'daddy@gmail.com' AND "users"."id" != 22 LIMIT 1 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mUser Update (0.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-04-27 03:39:07.985883', "refresh_token" = 'cbeb18e593f423a39947715e8ec54468fb8d33c945ace8e1a8bdf7770d4ca41f', "refresh_token_expires_at" = '2025-05-27 03:39:07.980509' WHERE "users"."id" = 22 /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='login',application='SchedulerBackend',controller='auth'*/[0m
+  ↳ app/controllers/api/v1/auth_controller.rb:13:in `login'
+Completed 200 OK in 197ms (Views: 0.5ms | ActiveRecord: 2.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:39:08 -0400
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:39:08 -0400
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Completed 200 OK in 912ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/canvas/upcoming_assignments?user_id=22" for ::1 at 2025-04-26 23:39:10 -0400
+Started GET "/api/v1/tasks_by_user?user_id=22" for ::1 at 2025-04-26 23:39:10 -0400
+Processing by Api::V1::CanvasController#upcoming_assignments as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='upcoming_assignments',application='SchedulerBackend',controller='canvas'*/[0m
+  ↳ app/controllers/api/v1/canvas_controller.rb:82:in `set_canvas_service'
+Processing by Api::V1::TasksController#task_by_user as HTML
+  Parameters: {"user_id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/application_controller.rb:20:in `current_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = 22 /*action='task_by_user',application='SchedulerBackend',controller='tasks'*/[0m
+  ↳ app/controllers/api/v1/tasks_controller.rb:38:in `task_by_user'
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 826ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+

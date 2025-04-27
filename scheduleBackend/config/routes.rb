@@ -17,9 +17,11 @@ Rails.application.routes.draw do
       get 'debug/users', to: 'users#debug_index' # for dev only
 
       # Task routes
-      resources :tasks, only: [:index, :create]
-      get 'tasks_by_user', to: 'tasks#task_by_user', as: 'tasks_by_user'
-
+      resources :tasks do
+        collection do
+          get 'user/:user_id', to: 'tasks#task_by_user'
+        end
+      end
       # Canvas API routes
       resources :canvas, only: [] do
         collection do

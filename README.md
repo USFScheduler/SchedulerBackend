@@ -1,6 +1,6 @@
 # SchedulerBackend
 
-This is the backend service for the USF Scheduler mobile application. It provides a RESTful API for managing user schedules and handles all business logic, authentication, and data storage.
+This is the backend service for the USF Scheduler mobile application. It provides a RESTful API for managing user schedules and handles all logic, authentication, and data storage. The app also supports importing assignments from Canvas via the Canvas API.
 
 ---
 
